@@ -1,0 +1,9 @@
+.footer-wrapper {
+  background-color: var(--primaryBg);
+  color: var(--txtWhite);
+  font-family: var(--fontUse), sans-serif;
+}
+
+.txt-footer {
+  font-size: var(--fontSize);
+}

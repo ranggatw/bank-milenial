@@ -1,6 +1,14 @@
+:root{
+  --primaryBg: #437CF8;
+  --whiteBg: #FFFFFF;
+  --txtWhite: #FFFFFF;
+  --fontFam: "Outfit";
+  --fontSize: 17px;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Outfit' ,-apple-system, BlinkMacSystemFont,  'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
