@@ -4,14 +4,14 @@ import "./footer.css";
 
 function Footer() {
   return (
-    <Row className="text-center ">
-      <Col className="footer-wrapper">
-        <p className="my-3 txt-footer">
+    <div className="text-center">
+      <div className="footer-wrapper p-3">
+        <div className="txt-footer">
           Bank Milenial | Hak Cipta Dilindungi Oleh Undang-Undang
-        </p>
-      </Col>
+        </div>
+      </div>
       {/* <Col className="justify-content-center">adsd</Col> */}
-    </Row>
+    </div>
   );
 }
 

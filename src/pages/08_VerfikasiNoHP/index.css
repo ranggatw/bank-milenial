@@ -1,0 +1,85 @@
+.view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.card-form {
+  min-width: 360px;
+  padding: 2rem;
+  background: var(--bgWhite);
+}
+
+.card > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card > form > p {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.inputStyle {
+  width: 3rem !important;
+  height: 3rem;
+  margin: 0 1rem;
+  font-size: 1.5rem;
+  border-radius: 4px;
+  border: 1px solid #437CF8;
+}
+
+.btn-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn {
+  background-color: #3273dc;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 1rem;
+}
+
+.btn:disabled {
+  background-color: rgba(0, 0, 0, 0.4);
+  cursor: not-allowed;
+}
+
+.margin-top--small {
+  margin-top: 1rem;
+  margin-bottom: -1rem;
+}
+
+.margin-top--small > div {
+  flex-wrap: wrap;
+}
+
+.margin-top--small > div > div {
+  margin-bottom: 1rem;
+}
+
+.margin-top--medium {
+  margin-top: 1.5rem;
+}
+
+.margin-top--large {
+  margin-top: 4rem;
+}
+
+.error {
+  border: 1px solid red !important;
+}
+
+.verifikasi-head-title {
+  font-size: var(--fontSize);
+  font-weight: var(--fontWeight);
+}
+
+.resend {
+  color: var(--txtBlue)
+}
