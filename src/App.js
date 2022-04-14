@@ -1,16 +1,14 @@
 import "./App.css";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import CommingSoon from "./pages/00_CommingSoon/CommingSoon";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <div>
-        <Header />
-        <div>adsd</div>
-        <Footer />
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<CommingSoon />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
