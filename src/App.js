@@ -10,6 +10,7 @@ import CommingSoon from "./pages/00_CommingSoon/CommingSoon";
 import VerifikasiOtp from "./pages/08_VerfikasiNoHP/VerifikasiOtp";
 import Container from "./container/Container";
 import AmbilKTP from "./pages/07_AmbilKTP/AmbilKTP";
+import InstruksiVerifikasiKTP from "./pages/06_VerifikasiKTP/InstruksiVerifikasiKTP";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         </Route>
         <Route element={<Container />}>
           <Route path="/register/*" element={<Outlet />}>
+            <Route path="ktp/instruksi" element={<InstruksiVerifikasiKTP />} />
             <Route path="ktp" element={<AmbilKTP />} />
             <Route path="otp" element={<VerifikasiOtp />} />
           </Route>
