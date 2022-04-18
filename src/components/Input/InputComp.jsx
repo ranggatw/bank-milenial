@@ -1,16 +1,24 @@
 import React from "react";
 
-function InputComp({ labelFor, labelTxt, inputType, id, placeholder }) {
+function InputComp({
+  labelFor,
+  labelTxt,
+  inputType,
+  placeholder,
+  inputProps,
+  onChange,
+  value,
+}) {
   return (
     <div className="mb-3">
       <label htmlFor={labelFor} className="fw-bold">
         {labelTxt}
       </label>
       <input
-        type={inputType}
+        {...inputProps}
+        onChange={onChange}
+        value={value}
         className="form-control"
-        id={id}
-        placeholder={placeholder}
       />
     </div>
   );

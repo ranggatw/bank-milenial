@@ -1,9 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import ImgKtpBenar from "../../assets/ktp_benar.png";
 import ImgKtpSalah from "../../assets/ktp_salah.png";
 import ButtonNext from "../../components/Button/ButtonNext";
 
 function InstruksiVerifikasiKTP() {
+  // const user = useSelector(store => store.user)
+  // console.log(user)
   return (
     <div
       className=""
