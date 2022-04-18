@@ -11,6 +11,7 @@ import VerifikasiOtp from "./pages/08_VerfikasiNoHP/VerifikasiOtp";
 import Container from "./container/Container";
 import AmbilKTP from "./pages/07_AmbilKTP/AmbilKTP";
 import InstruksiVerifikasiKTP from "./pages/06_VerifikasiKTP/InstruksiVerifikasiKTP";
+import DataDiriPage from "./pages/10_DataDiri/DataDiriPage";
 
 function App() {
   return (
@@ -23,7 +24,9 @@ function App() {
           <Route path="/register/*" element={<Outlet />}>
             <Route path="ktp/instruksi" element={<InstruksiVerifikasiKTP />} />
             <Route path="ktp" element={<AmbilKTP />} />
+            <Route path="ktp/data-diri" element={<DataDiriPage />} />
             <Route path="otp" element={<VerifikasiOtp />} />
+            
           </Route>
         </Route>
 
