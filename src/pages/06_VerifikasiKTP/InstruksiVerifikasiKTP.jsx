@@ -8,7 +8,7 @@ function InstruksiVerifikasiKTP() {
     <div
       className=""
       style={{
-        height: "calc(100vh - 137.5px)",
+        // height: "calc(100vh - 137.5px)",
         minHeight: "calc(100vh - 137.5px)",
         paddingTop: "5rem",
       }}
@@ -36,14 +36,14 @@ function InstruksiVerifikasiKTP() {
           </div>
         </div>
       </div>
-      <div className="d-flex justify-content-center">
-        <div className="p-5">
+      <div className="d-flex flex-sm-row flex-column text-center justify-content-center">
+        <div className="pe-lg-5">
           <img src={ImgKtpBenar} alt="" />
           <div className="text-center pt-2">
             <span className="text-primary fw-bold">Benar</span>
           </div>
         </div>
-        <div className="p-5">
+        <div className="">
           <img src={ImgKtpSalah} alt="" />
           <div className="text-center pt-2">
             <span className="text-danger fw-bold">Salah</span>
