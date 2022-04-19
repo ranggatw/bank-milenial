@@ -11,7 +11,7 @@ const initialState = {
     email: "",
     nasabahMother: "",
     posNumber: "",
-    // ktpImg: "",
+    ktpImg: [],
     // otp: ""
   },
 };

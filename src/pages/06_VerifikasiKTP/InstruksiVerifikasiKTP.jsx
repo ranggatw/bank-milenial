@@ -1,12 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import ImgKtpBenar from "../../assets/ktp_benar.png";
 import ImgKtpSalah from "../../assets/ktp_salah.png";
 import ButtonNext from "../../components/Button/ButtonNext";
 
 function InstruksiVerifikasiKTP() {
-  // const user = useSelector(store => store.user)
-  // console.log(user)
+  let navigate = useNavigate();
+
+  const handleButtonMengerti = () => {
+    navigate("/register/ktp/upload");
+  };
+
   return (
     <div
       className=""
@@ -17,7 +21,7 @@ function InstruksiVerifikasiKTP() {
       }}
     >
       <div className="d-flex justify-content-center mb-5">
-        <div className="" style={{ width: "500px" }}>
+        <div className="p-2" style={{ width: "500px" }}>
           <div className="text-center mb-4">
             <h3>Verifikasi E-KTP</h3>
           </div>
@@ -39,14 +43,14 @@ function InstruksiVerifikasiKTP() {
           </div>
         </div>
       </div>
-      <div className="d-flex flex-sm-row flex-column text-center justify-content-center">
-        <div className="pe-lg-5">
+      <div className="d-flex flex-sm-row flex-column text-sm-center justify-content-evenly">
+        <div className="text-center mb-4 mb-lg-0">
           <img src={ImgKtpBenar} alt="" />
           <div className="text-center pt-2">
             <span className="text-primary fw-bold">Benar</span>
           </div>
         </div>
-        <div className="">
+        <div className="text-center">
           <img src={ImgKtpSalah} alt="" />
           <div className="text-center pt-2">
             <span className="text-danger fw-bold">Salah</span>
@@ -54,7 +58,7 @@ function InstruksiVerifikasiKTP() {
         </div>
       </div>
       <div className="text-center">
-        <ButtonNext title={"Oke mengerti"} />
+        <ButtonNext onClick={handleButtonMengerti} title={"Oke mengerti"} />
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ import {
 import CommingSoon from "./pages/00_CommingSoon/CommingSoon";
 import VerifikasiOtp from "./pages/08_VerfikasiNoHP/VerifikasiOtp";
 import Container from "./container/Container";
-import AmbilKTP from "./pages/07_AmbilKTP/AmbilKTP";
+import UploadKTP from "./pages/07_UploadKTP/UploadKTP";
 import InstruksiVerifikasiKTP from "./pages/06_VerifikasiKTP/InstruksiVerifikasiKTP";
 import DataDiriPage from "./pages/10_DataDiri/DataDiriPage";
 
@@ -23,10 +23,9 @@ function App() {
         <Route element={<Container />}>
           <Route path="/register/*" element={<Outlet />}>
             <Route path="ktp/instruksi" element={<InstruksiVerifikasiKTP />} />
-            <Route path="ktp" element={<AmbilKTP />} />
+            <Route path="ktp/upload" element={<UploadKTP />} />
             <Route path="ktp/data-diri" element={<DataDiriPage />} />
             <Route path="otp" element={<VerifikasiOtp />} />
-            
           </Route>
         </Route>
 
