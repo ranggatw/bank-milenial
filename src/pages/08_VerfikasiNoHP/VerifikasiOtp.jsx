@@ -30,7 +30,7 @@ function VerifikasiOtp() {
     <div
       className="wraper-verifikasi-otp"
       style={{
-        height: `calc(100vh - 137.5px);`,
+        // height: `calc(100vh - 137.5px);`,
         minHeight: "calc(100vh - 137.5px)",
         paddingTop: "8rem",
       }}

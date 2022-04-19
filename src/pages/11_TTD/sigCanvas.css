@@ -1,0 +1,28 @@
+/* .signatureCanvas {
+  background-color: var(--primaryBg);
+  border: 1px solid black;
+  width: 50vw;
+  min-height: 350px;
+} */
+
+
+.signatureContainer {
+  height: 250px;
+  width: 350px;
+  background-color: #fff;
+  border: 2px dashed var(--primaryBg);
+  margin: 0 auto;
+}
+.signatureCanvas {
+  width: 100%;
+  height: 100%;
+}
+
+.signaturePreview {
+  height: 250px;
+  width: 350px;
+  background-color: #fff;
+  border: 1px solid black;
+  margin: 0 auto;
+  padding: 5px;
+}

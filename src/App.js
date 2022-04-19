@@ -12,6 +12,7 @@ import Container from "./container/Container";
 import UploadKTP from "./pages/07_UploadKTP/UploadKTP";
 import InstruksiVerifikasiKTP from "./pages/06_VerifikasiKTP/InstruksiVerifikasiKTP";
 import DataDiriPage from "./pages/10_DataDiri/DataDiriPage";
+import TandaTanganDigital from "./pages/11_TTD/TandaTanganDigital";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="ktp/upload" element={<UploadKTP />} />
             <Route path="ktp/data-diri" element={<DataDiriPage />} />
             <Route path="otp" element={<VerifikasiOtp />} />
+            <Route path="ttd" element={<TandaTanganDigital />} />
           </Route>
         </Route>
 

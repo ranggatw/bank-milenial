@@ -12,6 +12,7 @@ const initialState = {
     nasabahMother: "",
     posNumber: "",
     ktpImg: [],
+    signatureImg: null,
     // otp: ""
   },
 };

@@ -137,7 +137,7 @@ function DataDiriPage() {
               labelTxt={"Nomor Handphone"}
               inputProps={{
                 type: "number",
-                placeholder: "pastikan nomor aktif untuk menerima verifikasi",
+                placeholder: "pastikan nomor aktif untuk menerima kode verifikasi",
               }}
               value={values.numberPhone}
               onChange={(e) =>
