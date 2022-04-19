@@ -13,6 +13,7 @@ import UploadKTP from "./pages/07_UploadKTP/UploadKTP";
 import InstruksiVerifikasiKTP from "./pages/06_VerifikasiKTP/InstruksiVerifikasiKTP";
 import DataDiriPage from "./pages/10_DataDiri/DataDiriPage";
 import TandaTanganDigital from "./pages/11_TTD/TandaTanganDigital";
+import DevPage from "./pages/00_CommingSoon/DevPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<CommingSoon />}>
           <Route path="/comming-soon" element={<CommingSoon />} />
         </Route>
+        <Route path="/dev" element={<DevPage />} />
         <Route element={<Container />}>
           <Route path="/register/*" element={<Outlet />}>
             <Route path="ktp/instruksi" element={<InstruksiVerifikasiKTP />} />
