@@ -14,6 +14,7 @@ import InstruksiVerifikasiKTP from "./pages/06_VerifikasiKTP/InstruksiVerifikasi
 import DataDiriPage from "./pages/10_DataDiri/DataDiriPage";
 import TandaTanganDigital from "./pages/11_TTD/TandaTanganDigital";
 import DevPage from "./pages/00_CommingSoon/DevPage";
+import KantorCabang from "./pages/05_KantorCabang/KantorCabang";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="ktp/data-diri" element={<DataDiriPage />} />
             <Route path="otp" element={<VerifikasiOtp />} />
             <Route path="ttd" element={<TandaTanganDigital />} />
+            <Route path="kantor-cabang" element={<KantorCabang />} />
           </Route>
         </Route>
 

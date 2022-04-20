@@ -20,6 +20,9 @@ function DevPage() {
   const ttdPage = () => {
     navigate("/register/ttd");
   };
+  const kantorCabang = () => {
+    navigate("/register/kantor-cabang");
+  };
 
   return (
     <div>
@@ -38,6 +41,9 @@ function DevPage() {
       </div>
       <div className="mb-2">
         <ButtonNext title={"TTD PAGE"} onClick={ttdPage} />
+      </div>
+      <div className="mb-2">
+        <ButtonNext title={"Kantor Cabang"} onClick={kantorCabang} />
       </div>
     </div>
   );
