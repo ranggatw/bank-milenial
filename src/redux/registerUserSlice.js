@@ -13,6 +13,7 @@ const initialState = {
     posNumber: "",
     ktpImg: [],
     signatureImg: null,
+    videoVerfikasi: [],
     // otp: ""
   },
 };

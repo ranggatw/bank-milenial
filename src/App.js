@@ -15,6 +15,9 @@ import DataDiriPage from "./pages/10_DataDiri/DataDiriPage";
 import TandaTanganDigital from "./pages/11_TTD/TandaTanganDigital";
 import DevPage from "./pages/00_CommingSoon/DevPage";
 import KantorCabang from "./pages/05_KantorCabang/KantorCabang";
+import InstruksiVideo from "./pages/09_VerifikasiVideo/InstruksiVideo";
+import SyaratDanKetentuan from "./pages/09_VerifikasiVideo/SyaratDanKetentuan";
+import UploadVideo from "./pages/09_VerifikasiVideo/UploadVideo";
 
 function App() {
   return (
@@ -32,6 +35,12 @@ function App() {
             <Route path="otp" element={<VerifikasiOtp />} />
             <Route path="ttd" element={<TandaTanganDigital />} />
             <Route path="kantor-cabang" element={<KantorCabang />} />
+            <Route path="video-instruski" element={<InstruksiVideo />} />
+            <Route
+              path="video-syarat-ketentuan"
+              element={<SyaratDanKetentuan />}
+            />
+            <Route path="video-upload" element={<UploadVideo />} />
           </Route>
         </Route>
 

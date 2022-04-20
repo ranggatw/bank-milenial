@@ -23,6 +23,12 @@ function DevPage() {
   const kantorCabang = () => {
     navigate("/register/kantor-cabang");
   };
+  const instruksiVideo = () => {
+    navigate("/register/video-instruski");
+  };
+  const uploadVideo = () => {
+    navigate("/register/video-upload");
+  };
 
   return (
     <div>
@@ -44,6 +50,12 @@ function DevPage() {
       </div>
       <div className="mb-2">
         <ButtonNext title={"Kantor Cabang"} onClick={kantorCabang} />
+      </div>
+      <div className="mb-2">
+        <ButtonNext title={"Instruksi Video"} onClick={instruksiVideo} />
+      </div>
+      <div className="mb-2">
+        <ButtonNext title={"Upload Video"} onClick={uploadVideo} />
       </div>
     </div>
   );
