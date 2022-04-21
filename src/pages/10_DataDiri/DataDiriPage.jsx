@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ImgDummyKtp from "../../assets/dummyKtp.png";
 import InputComp from "../../components/Input/InputComp";
 import ButtonNext from "../../components/Button/ButtonNext";
 import { useDispatch, useSelector } from "react-redux";
+import ButtonComp from "../../components/Button/ButtonComp";
 import { registerNasabah } from "../../redux/registerUserSlice";
 
 function DataDiriPage() {
@@ -22,6 +23,34 @@ function DataDiriPage() {
     posNumber: "",
   });
   // console.log(values);
+
+  const [activeBtn, setActiveButton] = useState(false);
+  console.log(activeBtn, "aktif");
+
+  useEffect(() => {
+    if (
+      values.nik &&
+      values.nasabahName &&
+      values.placeBirth &&
+      values.dateBirth &&
+      values.numberPhone &&
+      values.email &&
+      values.nasabahMother &&
+      values.posNumber !== values.nik.length > 0 &&
+      values.nasabahName.length > 0 &&
+      values.placeBirth.length > 0 &&
+      values.dateBirth.length > 0 &&
+      values.numberPhone.length > 0 &&
+      values.email.length > 0 &&
+      values.nasabahMother.length > 0 &&
+      values.posNumber.length > 0
+    ) {
+      setActiveButton(true);
+      // console.log("kosong");
+    } else {
+      // console.log("")
+    }
+  });
 
   const handleDataDiriNasabah = () => {
     setValues({
@@ -47,7 +76,48 @@ function DataDiriPage() {
         posNumber: values.posNumber,
       })
     );
-    console.log(values, "click button");
+    // console.log(values, "click button");
+  };
+
+  const noAct = () => {
+    console.log("eaaa");
+  };
+
+  const validEmail = new RegExp("^\\d{16}$");
+
+  const validate = () => {
+    if (!validEmail.test(values.nik)) {
+      console.log("sdasdlas");
+      // setEmailErr(true);
+    }
+    // if (!validPassword.test(password)) {
+    //   setPwdError(true);
+    // }
+  };
+
+  useEffect(() => {
+    validate();
+  });
+  const handleNIK = (e) => {
+    const limit = 16;
+    setValues({ ...values, nik: e.target.value.slice(0, limit) });
+  };
+
+  const handleNamaIbu = (e) => {
+    const re = /^[A-Za-z]+$/;
+    if (e.target.value === "" || re.test(e.target.value))
+      setValues({ ...values, nasabahMother: e.target.value });
+  };
+
+  const handleTempatLahir = (e) => {
+    const re = /^[A-Za-z]+$/;
+    if (e.target.value === "" || re.test(e.target.value))
+      setValues({ ...values, placeBirth: e.target.value });
+  };
+  const handleNamaLengkap = (e) => {
+    const re = /^[A-Za-z]+$/;
+    if (e.target.value === "" || re.test(e.target.value))
+      setValues({ ...values, nasabahName: e.target.value });
   };
 
   return (
@@ -87,9 +157,12 @@ function DataDiriPage() {
               inputProps={{
                 type: "number",
                 placeholder: "isi sesuai nomor induk pada E-KTP anda",
+                maxLength: 6,
               }}
               value={values.nik}
-              onChange={(e) => setValues({ ...values, nik: e.target.value })}
+              onChange={(e) => handleNIK(e)}
+
+              // onChange={(e) => setValues({ ...values, nik: e.target.value })}
             />
             <InputComp
               labelFor={"name"}
@@ -99,9 +172,10 @@ function DataDiriPage() {
                 placeholder: "nama lengkap sesuai data pada E-KTP",
               }}
               value={values.nasabahName}
-              onChange={(e) =>
-                setValues({ ...values, nasabahName: e.target.value })
-              }
+              onChange={(e) => handleNamaLengkap(e)}
+              // onChange={(e) =>
+              //   setValues({ ...values, nasabahName: e.target.value })
+              // }
             />
             <InputComp
               labelFor={"tempat-lahir"}
@@ -111,9 +185,10 @@ function DataDiriPage() {
                 placeholder: "isi sesuai dengan data E-KTP ",
               }}
               value={values.placeBirth}
-              onChange={(e) =>
-                setValues({ ...values, placeBirth: e.target.value })
-              }
+              onChange={(e) => handleTempatLahir(e)}
+              // onChange={(e) =>
+              //   setValues({ ...values, placeBirth: e.target.value })
+              // }
             />
             <InputComp
               labelFor={"tanggal-lahir"}
@@ -137,7 +212,8 @@ function DataDiriPage() {
               labelTxt={"Nomor Handphone"}
               inputProps={{
                 type: "number",
-                placeholder: "pastikan nomor aktif untuk menerima kode verifikasi",
+                placeholder:
+                  "pastikan nomor aktif untuk menerima kode verifikasi",
               }}
               value={values.numberPhone}
               onChange={(e) =>
@@ -160,11 +236,13 @@ function DataDiriPage() {
               inputProps={{
                 type: "text",
                 placeholder: "isi sesuai data kartu keluarga",
+                // onKeyPress: ,
               }}
               value={values.nasabahMother}
-              onChange={(e) =>
-                setValues({ ...values, nasabahMother: e.target.value })
-              }
+              onChange={(e) => handleNamaIbu(e)}
+              // onChange={(e) =>
+              //   setValues({ ...values, nasabahMother: e.target.value })
+              // }
             />
             <InputComp
               labelFor={"kode-pos"}
@@ -181,8 +259,18 @@ function DataDiriPage() {
           </div>
         </div>
       </div>
-      <div className="text-center">
-        <ButtonNext onClick={handleDataDiriNasabah} title={"Lanjut"} />
+      <div className="text-center mb-4">
+        {activeBtn == true ? (
+          <ButtonNext onClick={handleDataDiriNasabah} title={"Lanjut"} />
+        ) : (
+          <ButtonComp
+            title={"Lanjut"}
+            onClick={noAct}
+            className={"btn btn-primary btn-md"}
+            disabled={true}
+          />
+          // <ButtonNext onClick={handleDataDiriNasabah} title={"Lanjut"} />
+        )}
       </div>
     </div>
   );
