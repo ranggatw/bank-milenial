@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import OtpInput from "react-otp-input";
+import { useSelector } from "react-redux";
 import "./index.css";
 
 function VerifikasiOtp() {
+  const data = useSelector((store) => store.nasabah);
+  // console.log(data.dataNasabah.numberPhone);
+
   const [otp, setOtp] = useState("");
-  const [numPhone, setNumPhone] = useState("08812758185");
+  const [numPhone, setNumPhone] = useState(
+    data.dataNasabah.numberPhone || "0812xxxxxx"
+  );
   const [expOtp, setExpOtp] = useState("09:55");
   const [numInputs, setNumInputs] = useState(6);
   const [isDisabled, setIsDisabled] = useState(false);
@@ -24,6 +30,17 @@ function VerifikasiOtp() {
   const handleSubmitOtp = (e) => {
     e.preventDefault();
     alert(otp);
+  };
+
+  const [counter, setCounter] = useState(59);
+  useEffect(() => {
+    const timer =
+      counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+    return () => clearInterval(timer);
+  }, [counter]);
+
+  const changeToMinute = () => {
+    // let minutes = Math.floor((sec - hours * 3600) / 60);
   };
 
   return (
@@ -47,7 +64,7 @@ function VerifikasiOtp() {
               <div>Masukkan 6 digit kode OTP yang telah di kirim ke nomor</div>
               <div className=" pt-1">
                 <span className="fw-bold"> {numPhone} </span> dalam :{" "}
-                <span className="fw-bold">{expOtp}</span>
+                <span className="fw-bold">00:{counter}</span>
               </div>
             </div>
             <div className="margin-top--small p-2">
@@ -67,9 +84,13 @@ function VerifikasiOtp() {
             </div>
             <div className=" p-2 text-center">
               <div className="text-center pt-5">Belum menerima SMS ?</div>
-              <div className="resend">
-                <a href="#">Kirim ulang</a>
-              </div>
+              {counter == 0 ? (
+                <div className="resend">
+                  <a href="#">Kirim ulang</a>
+                </div>
+              ) : (
+                ""
+              )}
               <div className="btn-row pt-3 justify-content-center">
                 <button
                   // className="btn "
