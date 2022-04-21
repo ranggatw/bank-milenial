@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { registerNasabah } from "../../redux/registerUserSlice";
 import ButtonComp from "../Button/ButtonComp";
 import ButtonNext from "../Button/ButtonNext";
+import { useNavigate } from "react-router-dom";
 
 const baseStyle = {
   display: "flex",
@@ -37,6 +38,7 @@ const rejectStyle = {
 function UploadImage(props) {
   const dataNasabah = useSelector((store) => store.nasabah);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // console.log(dataNasabah);
   const [files, setFiles] = useState([]);
@@ -61,6 +63,7 @@ function UploadImage(props) {
     isDragActive,
     isDragAccept,
     isDragReject,
+    fileRejections,
   } = useDropzone({
     // onDrop: (acceptedFiles, fileRejections) => {
     //   fileRejections.forEach((file) => {
@@ -77,6 +80,7 @@ function UploadImage(props) {
     // maxSize: MAX_SIZE,
     onDrop,
     accept: "image/jpeg, image/png",
+    maxSize: MAX_SIZE,
   });
 
   const style = useMemo(
@@ -88,6 +92,19 @@ function UploadImage(props) {
     }),
     [isDragActive, isDragReject, isDragAccept]
   );
+
+  const fileRejectionItems = fileRejections.map(({ file, errors }) => (
+    <div key={file.path}>
+      {file.path} - {(file.size / 1024000).toFixed(2)}MB
+      <div>
+        {errors.map((e) => (
+          <div className="text-center" style={{ color: "red" }} key={e.code}>
+            file tidak boleh lebih dari 1 MB
+          </div>
+        ))}
+      </div>
+    </div>
+  ));
 
   const thumbs = files.map((file) => (
     <div key={file.name}>
@@ -116,6 +133,10 @@ function UploadImage(props) {
     </div>
   ));
 
+  const noAct = () => {
+    console.log("Haha ngapain di klick");
+  };
+
   // const checkSizeFile = files.map((file) => (
   //   <div>{file.size > MAX_SIZE ? "terlalu besar" : "oke"}</div>
   // ));
@@ -130,6 +151,7 @@ function UploadImage(props) {
   const saveImage = () => {
     // setFiles([]);
     dispatch(registerNasabah({ ktpImg: files }));
+    navigate("/ktp/data-diri");
   };
 
   const deleteImage = () => {
@@ -156,13 +178,24 @@ function UploadImage(props) {
             )} */}
 
           <div>{thumbs}</div>
+          <div>{fileRejectionItems}</div>
           {/* <div>{checkSizeFile}</div> */}
           {/* <div>{files ? files[0].size : " "}</div> */}
         </div>
       </section>
       <div className="d-flex justify-content-center pt-4 ">
         <div className="m-2">
-          <ButtonNext title={"Upload"} onClick={saveImage} />
+          {files && files.length == 0 ? (
+            <ButtonComp
+              title={"Upload"}
+              onClick={noAct}
+              disabled={true}
+              className={"btn btn-primary btn-md"}
+            />
+          ) : (
+            <ButtonNext title={"Upload"} onClick={saveImage} />
+          )}
+          {/* <ButtonNext title={"Upload"} onClick={saveImage} /> */}
         </div>
       </div>
     </div>

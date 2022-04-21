@@ -1,10 +1,19 @@
+// import React from 'react'
+
+// function VerifikasiTTD() {
+//   return (
+//     <div>VerifikasiTTD</div>
+//   )
+// }
+
+// export default VerifikasiTTD
 import React, { useState, useEffect } from "react";
 import OtpInput from "react-otp-input";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
 
-function VerifikasiOtp() {
+function VerifikasiTTD() {
   const data = useSelector((store) => store.nasabah);
   const navigate = useNavigate();
   // console.log(data.dataNasabah.numberPhone);
@@ -30,7 +39,7 @@ function VerifikasiOtp() {
   };
 
   const goToNext = () => {
-    navigate("/video-instruski");
+    navigate("/konfirmasi-akhir");
   };
 
   const handleSubmitOtp = (e) => {
@@ -63,7 +72,7 @@ function VerifikasiOtp() {
           <form onSubmit={() => handleSubmitOtp()}>
             <div>
               <h2 className="verifikasi-head-title pb-4 text-center">
-                Verifikasi Nomor Handphone
+                Verifikasi Tanda Tangan Digital
               </h2>
             </div>
             <div className="text-center">
@@ -89,7 +98,14 @@ function VerifikasiOtp() {
               />
             </div>
             <div className=" p-2 text-center">
-              <div className="text-center pt-5">Belum menerima SMS ?</div>
+              <div>
+                <div className="">
+                  Kode ini dikirimkan sebagai proses validasi Tanda Tangan
+                  Digital atas <br />
+                  pengajuan pembukaan rekening
+                </div>
+                <div className="text-center pt-5">Belum menerima SMS ?</div>
+              </div>
               {counter == 0 ? (
                 <div className="resend">
                   <a href="#">Kirim ulang</a>
@@ -114,4 +130,4 @@ function VerifikasiOtp() {
   );
 }
 
-export default VerifikasiOtp;
+export default VerifikasiTTD;

@@ -5,9 +5,11 @@ import "./sigCanvas.css";
 import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { registerNasabah } from "../../redux/registerUserSlice";
+import { useNavigate } from "react-router-dom";
 
 function TandaTanganDigital() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [imageURL, setImageURL] = useState(null); // create a state that will contain our image url
   const [signImg, setSignImg] = useState(null);
   const sigCanvas = useRef({});
@@ -25,6 +27,7 @@ function TandaTanganDigital() {
 
   const savedSign = () => {
     dispatch(registerNasabah({ signatureImg: signImg }));
+    navigate("/ttd/otp");
     // setSignImg(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
     // console.log(signImg);
   };
@@ -85,8 +88,11 @@ function TandaTanganDigital() {
                 className="signaturePreview"
               />
             </div>
-            <div>
-              <Button className="btn-primary btn-sm me-4" onClick={retakeSign}>
+            <div className="mb-2">
+              <Button
+                className="btn-secondary btn-sm me-4"
+                onClick={retakeSign}
+              >
                 Ulangi
               </Button>
             </div>

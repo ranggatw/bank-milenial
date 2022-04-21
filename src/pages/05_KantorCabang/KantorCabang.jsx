@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import { MapContainer, TileLayer, useMap, Popup, Marker } from "react-leaflet";
 import "./kantorCabang.css";
 import ButtonComp from "../../components/Button/ButtonComp";
+import { useNavigate } from "react-router-dom";
 
 function KantorCabang() {
+  const navigate = useNavigate();
   const [selectedCabang, setSelectedCabang] = useState(false);
   const selectCabang = () => {
     setSelectedCabang(true);
   };
 
   const nextButton = () => {
-    console.log("next");
+    console.log("/ktp/instruksi");
+    navigate("/ktp/instruksi");
   };
   console.log("wkwkwkw", selectedCabang);
   return (
@@ -33,7 +36,7 @@ function KantorCabang() {
           className="form-select mx-1"
           aria-label="Default select example"
         >
-          <option selected>Pilih Provinsi</option>
+          <option>Pilih Provinsi</option>
           <option value="1">Yogyakarta</option>
           {/* <option value="2">Jawa Tengah</option>
           <option value="3">Jawa Timur</option> */}
@@ -42,7 +45,7 @@ function KantorCabang() {
           className="form-select mx-1"
           aria-label="Default select example"
         >
-          <option selected>Pilih Kota</option>
+          <option>Pilih Kota</option>
           <option value="1">Yogyakarta</option>
           {/* <option value="2">Two</option>
           <option value="3">Three</option> */}
@@ -51,7 +54,7 @@ function KantorCabang() {
           className="form-select mx-1"
           aria-label="Default select example"
         >
-          <option selected>Pilih Kecamatan</option>
+          <option>Pilih Kecamatan</option>
           <option value="1">Umbulharjo</option>
           <option value="2">Banguntapan</option>
         </select>
@@ -60,7 +63,7 @@ function KantorCabang() {
           aria-label="Default select example"
           onChange={selectCabang}
         >
-          <option selected>Pilih Kantor Cabang</option>
+          <option>Pilih Kantor Cabang</option>
           <option value="1">Kanotr Pusat Nitikan</option>
           {/* <option value="2">Two</option> */}
           <option value="3">Kantor Cabang Banguntapan </option>

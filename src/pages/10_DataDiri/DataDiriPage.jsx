@@ -5,12 +5,14 @@ import ButtonNext from "../../components/Button/ButtonNext";
 import { useDispatch, useSelector } from "react-redux";
 import ButtonComp from "../../components/Button/ButtonComp";
 import { registerNasabah } from "../../redux/registerUserSlice";
+import { useNavigate } from "react-router-dom";
 
 function DataDiriPage() {
   // const nasabah = useSelector((store) => store.user);
   // console.log(nasabah);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [values, setValues] = useState({
     nik: "",
@@ -76,6 +78,8 @@ function DataDiriPage() {
         posNumber: values.posNumber,
       })
     );
+    navigate("/otp");
+
     // console.log(values, "click button");
   };
 

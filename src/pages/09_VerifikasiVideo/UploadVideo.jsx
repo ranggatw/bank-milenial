@@ -125,7 +125,7 @@ function UploadVideo(props) {
 
   const saveVideo = () => {
     dispatch(registerNasabah({ videoVerfikasi: files }));
-    navigate("/dev");
+    navigate("/ttd");
   };
 
   const noAct = () => {

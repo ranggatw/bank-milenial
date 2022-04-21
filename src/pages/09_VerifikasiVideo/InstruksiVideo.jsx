@@ -19,7 +19,7 @@ function InstruksiVideo() {
   };
 
   const gotoUpload = () => {
-    navigate("/dev");
+    navigate("/video-upload");
   };
 
   return (

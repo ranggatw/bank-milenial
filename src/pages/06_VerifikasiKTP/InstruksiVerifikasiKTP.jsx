@@ -8,7 +8,7 @@ function InstruksiVerifikasiKTP() {
   let navigate = useNavigate();
 
   const handleButtonMengerti = () => {
-    navigate("/register/ktp/upload");
+    navigate("/ktp/upload");
   };
 
   return (
