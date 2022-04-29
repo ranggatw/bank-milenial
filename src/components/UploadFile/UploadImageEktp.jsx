@@ -35,7 +35,7 @@ const rejectStyle = {
   borderColor: "#ff1744",
 };
 
-function UploadImage(props) {
+function UploadImageEktp(props) {
   const dataNasabah = useSelector((store) => store.nasabah);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -163,13 +163,13 @@ function UploadImage(props) {
   );
 
   const saveImage = () => {
-    localStorage.setItem("imageKtp", files[0].preview);
-    convertImage();
+    localStorage.setItem("imageSelfiKtp", files[0].preview);
+    // convertImage();
     // console.log(convertImage, "asdasdsadasd");
     // setFiles([]);
     // dispatch(registerNasabah({ ktpImg: files }));
-    navigate("/ktp/data-diri", { state: files[0].preview });
-  };;
+    navigate("/create-password", { state: files[0].preview });
+  };
 
   const deleteImage = () => {
     console.log("delete");
@@ -181,7 +181,7 @@ function UploadImage(props) {
 
   return (
     <div>
-      <h5 className="text-center mb-4">Upload Foto e-KTP</h5>
+      <h5 className="text-center mb-4">Upload Foto Selfie dan e-KTP</h5>
       <section className="d-flex justify-content-center">
         <div></div>
         <div {...getRootProps({ style })}>
@@ -189,7 +189,9 @@ function UploadImage(props) {
           {files && files.length > 0 ? (
             ""
           ) : (
-            <div className="fw-bold">Upload Foto e-KTP Anda disini.</div>
+            <div className="fw-bold">
+              Upload Foto Selfie dan e-KTP Anda disini.
+            </div>
           )}
           {/* {files && files.length > 0 ? (
             " console.log(dataNasabah.dataNasabah.ktpImg[0].preview)"
@@ -208,7 +210,7 @@ function UploadImage(props) {
           ""
         ) : (
           <ButtonComp
-            title={"Ambil Ulang"}
+            title={"Upload Ulang"}
             onClick={deleteImage}
             disabled={false}
             className={"btn btn-link btn-sm"}
@@ -231,4 +233,4 @@ function UploadImage(props) {
   );
 }
 
-export default UploadImage;
+export default UploadImageEktp;

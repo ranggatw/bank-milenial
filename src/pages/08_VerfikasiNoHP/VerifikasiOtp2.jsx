@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
 
-function VerifikasiOtp() {
+function VerifikasiOtp2() {
   const data = useSelector((store) => store.nasabah);
   const navigate = useNavigate();
   // console.log(data.dataNasabah.numberPhone);
@@ -30,7 +30,7 @@ function VerifikasiOtp() {
   };
 
   const goToNext = () => {
-    navigate("/tujuan-pembukaan-rekening");
+    navigate("/video-instruski");
   };
 
   const handleSubmitOtp = (e) => {
@@ -131,4 +131,4 @@ function VerifikasiOtp() {
   );
 }
 
-export default VerifikasiOtp;
+export default VerifikasiOtp2;

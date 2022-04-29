@@ -9,7 +9,7 @@ function PembukaanRekeningBaru() {
   const navigate = useNavigate();
 
   const goToNext = () => {
-    navigate("/jenis-kartu");
+    navigate("/syarat-dan-ketentuan");
   };
 
   return (
@@ -21,80 +21,81 @@ function PembukaanRekeningBaru() {
       }}
     >
       <div className="container">
-        <div className="row justify-content-center mt-5">
-          <div className="col-6 Tos">
-            <div className="text-center mb-4">
-              <h5 className="fw-bold ">Tahap Pembukaan Rekening Baru</h5>
+        <div className="row justify-content-center">
+          <div className="col-5 p-4 border border-2 rounded-3 ">
+            <div className="mb-4 ps-5">
+              <h4 className="fw-bold ">Tahap Pembukaan Rekening Baru</h4>
               <div>
                 Ikuti Tahap Pembukaan Rekening Baru dimanapun dan kapanpun
               </div>
             </div>
-            <ul className="Bas">
+            <ul>
               <li className="d-flex mb-4">
-                <div className="me-4">
+                <div className="me-5">
                   <img src={Gambare} />
                 </div>
                 <div>
                   <div className="d-flex flex-column justify-content-start">
                     <div className="d-flex justify-content-start">
-                      <strong>1. Pilih Kartu</strong>
-                    </div>{" "}
+                      <strong className="text-primary">Pilih Kartu</strong>
+                    </div>
                     <div> Pilih kartu debit yang anda inginkan </div>
                   </div>
-                </div>{" "}
+                </div>
               </li>
               <li className="d-flex mb-4">
-                <div className="me-4">
+                <div className="me-5">
                   <img src={Gambaree} />
                 </div>
                 <div>
                   <div className="d-flex flex-column justify-content-start">
                     <div className="d-flex justify-content-start">
-                      <strong>2. Pilih kantor cabang</strong>
-                    </div>{" "}
+                      <strong className="text-primary">
+                        Pilih kantor cabang
+                      </strong>
+                    </div>
                     <div> Pilih lokasi terdekat dari rumah anda </div>
                   </div>
                 </div>
               </li>
               <li className="d-flex mb-4">
-                <div className="me-4">
-                  <img src={Gambareee} />{" "}
+                <div className="me-5">
+                  <img src={Gambareee} />
                 </div>
                 <div>
                   <div className="d-flex flex-column justify-content-start">
                     <div className="d-flex justify-content-start">
-                      <strong>3. Verifikasi diri</strong>
-                    </div>{" "}
+                      <strong className="text-primary">Verifikasi diri</strong>
+                    </div>
                     <div> Siapkan dokumen e-KTP dan data diri </div>
                   </div>
                 </div>
               </li>
               <li className="d-flex mb-4">
-                <div className="me-4">
-                  <img src={Gambareeee} />{" "}
+                <div className="me-5">
+                  <img src={Gambareeee} />
                 </div>
                 <div>
                   <div className="d-flex flex-column justify-content-start">
                     <div className="d-flex justify-content-start">
-                      <strong>4. Video verifikasi</strong>
-                    </div>{" "}
+                      <strong className="text-primary">Video verifikasi</strong>
+                    </div>
                     <div>
-                      {" "}
-                      Verifikasi diri Anda dengan mengupload video rekaman{" "}
+                      Verifikasi diri Anda dengan mengupload video rekaman
                     </div>
                   </div>
                 </div>
               </li>
-              <div>
-                <button
-                  onClick={goToNext}
-                  style={{ width: "100%", padding: "0.8rem" }}
-                  className="btn btn-primary B "
-                >
-                  Mulai
-                </button>
-              </div>
             </ul>
+            <div>
+              <button
+                onClick={goToNext}
+                style={{ width: "100%", padding: "0.8rem" }}
+                className="btn btn-primary fw-bold "
+              >
+                Mulai
+              </button>
+            </div>
           </div>
         </div>
       </div>

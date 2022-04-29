@@ -25,6 +25,16 @@ import DetailKartuKredit from "./pages/04_DetailKartuKredit/DetailKartuKredit";
 import VerifikasiTTD from "./pages/11_TTD/VerifikasiTTD";
 import Konfirmasi from "./pages/12_Konfirmasi/Konfirmasi";
 import FinisihPage from "./pages/13_FinishPage/FinisihPage";
+import SyaratDanKetentuan2 from "./pages/SyaratDanKetentuan/SyaratDanKetentuan2";
+import DetailKartuDebit from "./pages/04_DetailKartuKredit/DetailKartuDebit";
+import PendidikanTerakhir from "./pages/PendidikanTerakhir/PendidikanTerakhir";
+import InformasiPekerjaan from "./pages/InformasiPekerjaan/InformasiPekerjaan";
+import TujuanPembukaanRek from "./pages/TujuanPembukaanRek/TujuanPembukaanRek";
+import VerifikasiOtp2 from "./pages/08_VerfikasiNoHP/VerifikasiOtp2";
+import UploadFotoBersama from "./pages/UploadFotoBersama/UploadFotoBersama";
+import UploadFotoBersamaInst from "./pages/UploadFotoBersama/UploadFotoBersamaInst";
+import CreatePassword from "./pages/Password/CreatePassword";
+import PinPassword from "./pages/Password/PinPassword";
 
 function App() {
   return (
@@ -37,19 +47,41 @@ function App() {
           <Route path="/" element={<Outlet />}>
             <Route path="/" element={<WellcomePage />} />
             <Route path="rekening-baru" element={<PembukaanRekeningBaru />} />
-            <Route path="jenis-kartu" element={<JenisKartuKredit />} />
-            <Route path="detail-kartu" element={<DetailKartuKredit />} />
-            <Route path="kantor-cabang" element={<KantorCabang />} />
+            <Route
+              path="syarat-dan-ketentuan"
+              element={<SyaratDanKetentuan2 />}
+            />
+            <Route path="jenis-kartu" element={<JenisKartuKredit />}></Route>
+            <Route path="jenis-kartu/:id" element={<DetailKartuDebit />} />
+            {/* <Route path="detail-kartu" element={<DetailKartuKredit />} /> */}
             <Route path="ktp/instruksi" element={<InstruksiVerifikasiKTP />} />
             <Route path="ktp/upload" element={<UploadKTP />} />
             <Route path="ktp/data-diri" element={<DataDiriPage />} />
             <Route path="otp" element={<VerifikasiOtp />} />
+            <Route
+              path="tujuan-pembukaan-rekening"
+              element={<TujuanPembukaanRek />}
+            />
+            <Route path="pendidikan" element={<PendidikanTerakhir />} />
+            <Route
+              path="informasi-pekerjaan"
+              element={<InformasiPekerjaan />}
+            />
+            <Route path="otp-2" element={<VerifikasiOtp2 />} />
             <Route path="video-instruski" element={<InstruksiVideo />} />
             <Route
               path="video-syarat-ketentuan"
               element={<SyaratDanKetentuan />}
             />
             <Route path="video-upload" element={<UploadVideo />} />
+            <Route
+              path="foto-ktp-instruksi"
+              element={<UploadFotoBersamaInst />}
+            />
+            <Route path="foto-ktp" element={<UploadFotoBersama />} />
+            <Route path="create-password" element={<CreatePassword />} />
+            <Route path="create-pin" element={<PinPassword />} />
+            <Route path="kantor-cabang" element={<KantorCabang />} />
             <Route path="ttd" element={<TandaTanganDigital />} />
             <Route path="ttd/otp" element={<VerifikasiTTD />} />
             <Route path="konfirmasi-akhir" element={<Konfirmasi />} />

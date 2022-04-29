@@ -5,12 +5,18 @@ import ButtonNext from "../../components/Button/ButtonNext";
 import { useDispatch, useSelector } from "react-redux";
 import ButtonComp from "../../components/Button/ButtonComp";
 import { registerNasabah } from "../../redux/registerUserSlice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function DataDiriPage() {
-  // const nasabah = useSelector((store) => store.user);
-  // console.log(nasabah);
+  const { state } = useLocation();
+  const nasabah = useSelector((store) => store.nasabah.dataNasabah);
+  console.log(nasabah, "sanasdasd");
+  console.log(state, "sanasdasd");
 
+  const [tempImage, setTempImg] = useState(localStorage.getItem("imageKtp"));
+  // const renderImg = URL.createObjectURL(renderImg);
+
+  console.log(tempImage, "local");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -27,7 +33,7 @@ function DataDiriPage() {
   // console.log(values);
 
   const [activeBtn, setActiveButton] = useState(false);
-  console.log(activeBtn, "aktif");
+  // console.log(activeBtn, "aktif");
 
   useEffect(() => {
     if (
@@ -54,6 +60,10 @@ function DataDiriPage() {
     }
   });
 
+  useEffect(() => {
+    // convertMS("600");
+  });
+
   const handleDataDiriNasabah = () => {
     setValues({
       nik: "",
@@ -67,7 +77,6 @@ function DataDiriPage() {
     });
     dispatch(
       registerNasabah({
-        // id: 3,
         nik: values.nik,
         nasabahName: values.nasabahName,
         placeBirth: values.placeBirth,
@@ -91,7 +100,7 @@ function DataDiriPage() {
 
   const validate = () => {
     if (!validEmail.test(values.nik)) {
-      console.log("sdasdlas");
+      // console.log("sdasdlas");
       // setEmailErr(true);
     }
     // if (!validPassword.test(password)) {
@@ -101,16 +110,18 @@ function DataDiriPage() {
 
   useEffect(() => {
     validate();
-  });
+    // setTempImg(localStorage.getItem("imageKtp"));
+  }, [tempImage]);
+
   const handleNIK = (e) => {
     const limit = 16;
     setValues({ ...values, nik: e.target.value.slice(0, limit) });
   };
 
   const handleNamaIbu = (e) => {
-    const re = /^[A-Za-z]+$/;
-    if (e.target.value === "" || re.test(e.target.value))
-      setValues({ ...values, nasabahMother: e.target.value });
+    // const re = /^[A-Za-z]+$/;
+    // if (e.target.value === "" || re.test(e.target.value))
+    setValues({ ...values, nasabahMother: e.target.value });
   };
 
   const handleTempatLahir = (e) => {
@@ -119,9 +130,9 @@ function DataDiriPage() {
       setValues({ ...values, placeBirth: e.target.value });
   };
   const handleNamaLengkap = (e) => {
-    const re = /^[A-Za-z]+$/;
-    if (e.target.value === "" || re.test(e.target.value))
-      setValues({ ...values, nasabahName: e.target.value });
+    // const re = /^[A-Za-z]+$/;
+    // if (e.target.value === "" || re.test(e.target.value))
+    setValues({ ...values, nasabahName: e.target.value });
   };
 
   return (
@@ -142,7 +153,11 @@ function DataDiriPage() {
             </span>
           </div>
           <div className="pt-4">
-            <img src={ImgDummyKtp} alt="" />
+            <img
+              src={tempImage || state}
+              alt=""
+              style={{ maxWidth: "300px", maxHeight: "300px" }}
+            />
           </div>
         </div>
       </div>

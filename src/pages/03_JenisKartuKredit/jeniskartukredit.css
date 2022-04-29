@@ -1,4 +1,6 @@
 .style-card:hover {
-  background-color: #E5E5E5 ;
+  background-color: #d0eaff;
   border-radius: 5px;
+  padding: 1rem;
+  transition: 0.3s;
 }

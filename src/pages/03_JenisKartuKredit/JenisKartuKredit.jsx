@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Atm from "../../assets/atm1.png";
 import Atm2 from "../../assets/atm1.png";
 import Atm3 from "../../assets/atm1.png";
 import "./jeniskartukredit.css";
+import { kartuDebit } from "./dummyKartuDebitDetail";
+import CardKartuDebit from "./CardKartuDebit";
 
 function JenisKartuKredit() {
   const navigate = useNavigate();
@@ -11,6 +13,16 @@ function JenisKartuKredit() {
   const goToNext = () => {
     navigate("/detail-kartu");
   };
+
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+  const fetchProducts = () => {
+    setProducts(kartuDebit);
+  };
+
+  // console.log(products);
 
   return (
     <div
@@ -25,8 +37,11 @@ function JenisKartuKredit() {
         <p className="fw-bold">Pilih kartu debit sesuai kebutuhan anda</p>
       </div>
       <div className="container">
-        <div className="row justify-content-center mt-5">
-          <div onClick={goToNext} className="col-6 style-card ">
+        <div className="row justify-content-center mt-2 gx-2">
+          {products.map((data, key) => (
+            <CardKartuDebit key={key} data={data} />
+          ))}
+          {/* <div onClick={goToNext} className="col-6 style-card ">
             <ul className="Bas">
               <li className="d-flex">
                 <img src={Atm} />
@@ -133,6 +148,7 @@ function JenisKartuKredit() {
               </li>
             </ul>
           </div>
+           */}
         </div>
       </div>
     </div>

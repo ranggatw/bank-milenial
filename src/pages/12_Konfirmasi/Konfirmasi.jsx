@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Atm1 from "../../assets/atm2.png";
 
 function Konfirmasi() {
+  const [tmpImgCard, setTmpImgCard] = useState(localStorage.getItem("image"));
   const navigate = useNavigate();
   const finishPage = () => {
     navigate("/finish");

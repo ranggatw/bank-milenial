@@ -12,8 +12,8 @@ function KantorCabang() {
   };
 
   const nextButton = () => {
-    console.log("/ktp/instruksi");
-    navigate("/ktp/instruksi");
+    // console.log("/ktp/instruksi");
+    navigate("/ttd");
   };
   console.log("wkwkwkw", selectedCabang);
   return (
