@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Atm1 from "../../assets/atm2.png";
 
 function Konfirmasi() {
-  const [tmpImgCard, setTmpImgCard] = useState(localStorage.getItem("image"));
+  const [tmpImgCard, setTmpImgCard] = useState("");
+  // const []
+  const fetchImageLocal = () => {
+    setTmpImgCard(localStorage.getItem("imgKartu"));
+  };
+  useEffect(() => {
+    fetchImageLocal();
+  });
+  console.log(tmpImgCard);
   const navigate = useNavigate();
   const finishPage = () => {
     navigate("/finish");
   };
+
   return (
     <div
       className="wraper-verifikasi-otp"
@@ -28,7 +37,12 @@ function Konfirmasi() {
             className="border border-dark rounded-3 p-5 text-center"
           >
             <div>
-              <img src={Atm1} />
+              {/* <img src={Atm1} /> */}
+              {tmpImgCard == "" ? (
+                <img src={Atm1} />
+              ) : (
+                <img src={"http://localhost:3000" + tmpImgCard} />
+              )}
             </div>
             <div className="mt-4 d-flex justify-content-evenly ">
               <div className="text-left me-5 mb-3">

@@ -9,10 +9,12 @@ function DetailKartuDebit() {
   //   state.biayaDanLimit.map((data, i) => data).map((title) => title.jenis),
   //   "looooooping"
   // );
-  console.log(
-    state.fitur.map((data, i) => data).map((title) => title),
-    "looooooping ssssssssssss"
-  );
+  localStorage.setItem("imgKartu", state.imgKartu);
+  console.log(state.imgKartu, "img kartu");
+  // console.log(
+  //   state.fitur.map((data, i) => data).map((title) => title),
+  //   "looooooping ssssssssssss"
+  // );
   const renderBiaya = () =>
     state.biayaDanLimit
       .map((data, i) => data)
@@ -70,7 +72,11 @@ function DetailKartuDebit() {
       }}
     >
       <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <img src={Atm1} />
+        {state == undefined ? (
+          <img src={Atm1} />
+        ) : (
+          <img src={"http://localhost:3000" + state.imgKartu} />
+        )}
       </ul>
 
       <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 mt-2">

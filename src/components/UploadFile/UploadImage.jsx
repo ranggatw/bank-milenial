@@ -208,7 +208,7 @@ function UploadImage(props) {
           ""
         ) : (
           <ButtonComp
-            title={"Ambil Ulang"}
+            title={"Upload Ulang"}
             onClick={deleteImage}
             disabled={false}
             className={"btn btn-link btn-sm"}

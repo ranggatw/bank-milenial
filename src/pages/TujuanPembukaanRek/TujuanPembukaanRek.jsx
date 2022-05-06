@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function TujuanPembukaanRek() {
   const navigate = useNavigate();
   const nextPage = () => {
-    navigate("/informasi-pekerjaan");
+    navigate("/pendidikan");
   };
 
   return (

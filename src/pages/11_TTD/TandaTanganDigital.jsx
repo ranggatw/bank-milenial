@@ -69,11 +69,11 @@ function TandaTanganDigital() {
               />
             </div>
             <div className="">
-              <Button className="btn-primary btn-sm me-4" onClick={previewSign}>
-                Save
-              </Button>
               <Button className="btn-danger btn-sm me-4" onClick={clear}>
                 Clear
+              </Button>
+              <Button className="btn-primary btn-sm me-4" onClick={previewSign}>
+                Save
               </Button>
             </div>
           </div>

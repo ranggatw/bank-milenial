@@ -87,7 +87,7 @@ function DataDiriPage() {
         posNumber: values.posNumber,
       })
     );
-    navigate("/otp");
+    navigate("/tujuan-pembukaan-rekening");
 
     // console.log(values, "click button");
   };

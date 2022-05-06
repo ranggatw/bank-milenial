@@ -92,7 +92,7 @@ function InformasiPekerjaan() {
             labelFor={"Telepon Perusahaan"}
             labelTxt={"Telepon Perusahaan"}
             inputProps={{
-              type: "text",
+              type: "number",
               placeholder: "",
               // maxLength: 6,
             }}

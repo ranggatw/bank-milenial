@@ -9,7 +9,7 @@ function PendidikanTerakhir() {
 
   return (
     <div
-      className=""
+      className="container"
       style={{
         // height: "calc(100vh - 137.5px)",
         minHeight: "calc(100vh - 137.5px)",

@@ -16,6 +16,9 @@ function SyaratDanKetentuan2() {
   const nextPage = () => {
     navigate("/jenis-kartu");
   };
+  const goBack = () => {
+    navigate(-1);
+  };
   return (
     <div
       className=""
@@ -390,12 +393,26 @@ function SyaratDanKetentuan2() {
             </div>
           </div>
           <div className="d-flex justify-content-center mt-5">
-            <ButtonComp
-              title={"Ok"}
-              onClick={nextPage}
-              className={"btn btn-primary"}
-              disabled={!isChecked}
-            />
+            {isChecked == true ? (
+              <ButtonComp
+                title={"Setuju"}
+                onClick={nextPage}
+                className={"btn btn-primary"}
+                disabled={!isChecked}
+              />
+            ) : (
+              ""
+            )}
+            {isChecked == false ? (
+              <ButtonComp
+                title={"Tidak Setuju"}
+                onClick={goBack}
+                className={"btn btn-primary"}
+                disabled={false}
+              />
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
